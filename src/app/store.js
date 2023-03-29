@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+
+import  quizReducer from "../features/quiz-create/createQuezeSlice"
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    quizes:quizReducer
   },
 });
