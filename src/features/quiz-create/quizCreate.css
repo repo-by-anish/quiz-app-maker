@@ -1,4 +1,278 @@
-.addOptionForm{
+/* 
+Buttons #748EC6
+Hover #515F7D
+Headers #5777BA
+txt color -1 #585A61
+*/
+.addQuest {
+    width: 20rem;
+    min-height: 20rem;
+    position: relative;
+}
+
+.button-add button {
+    padding: 10px 10px;
+    margin: 0.5rem 1.5rem;
+    background-color: #515F7D;
+    border-radius: 3px;
+    border: none;
 
 }
 
+.button-add {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-add button:hover {
+    background-color: #748EC6;
+}
+
+.questionVisual {
+    min-height: 3rem;
+    padding: 1.5rem 1.5rem;
+}
+
+.questionVisual p {
+    font-size: 1.3rem;
+    color: #585A61;
+    font-weight: 600;
+}
+
+.question-sec {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem;
+}
+
+.question-sec input {
+    margin: 0.3rem 0;
+    padding: 5px;
+}
+
+.question-sec button {
+    width: 2rem;
+    margin-left: auto;
+    margin-top: 0.2rem;
+    color: #29344a;
+    background: #7F7F7F;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 2px;
+    font-size: 0.75rem;
+}
+
+.question-sec input:focus {
+    outline: none;
+    color: #585A61;
+}
+
+button{
+    cursor: pointer;
+    color: #fff;
+}
+
+.questionVisual .option {
+    display: flex;
+    flex-direction: row;
+    color: #585A61;
+    font-weight: 500;
+}
+
+.questionVisual .option span {
+    margin-left: 0.3rem;
+}
+
+.button-submit {
+position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonExit{
+    width: 100%;
+}
+.buttonExit button{
+    float: right;
+    margin: 0.5rem;
+    color: #29344a;
+    background: #7F7F7F;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 2px;
+    font-size: 0.75rem;
+}
+
+.button-submit button {
+    position:static;
+    padding: 10px 10px;
+    margin: 0.5rem 1.5rem;
+    background-color: #515F7D;
+    border-radius: 3px;
+    border: none;
+}
+
+.dialogue{
+height: 8rem;
+position: relative;
+width: 10rem;
+text-align: center;
+}
+
+.inputFeild{
+    display: flex;
+    flex-direction: column;
+}
+
+.actionbutton{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    bottom: 1rem;
+}
+
+.actionbutton button{
+    background: #515F7D;
+    height: 1.5rem;
+    border-radius: 3px;
+    width: 4rem;
+    border:none
+}
+
+.dialogue input{
+ margin: 0.3rem 1rem;
+ padding: 5px;
+}
+
+/* Create Form Section Home */
+
+
+
+.fullFormVisual{
+    min-height: 40vh;
+}
+
+
+.quizBasicDetail{
+    padding: 2rem 3rem;
+    margin:1rem 1rem ;
+    border-radius: 3px;
+    box-shadow: #585A61 0 0 20px;
+}
+
+.quizBasicDetail button{
+    text-align: center;
+    margin-left: 0.5rem;
+    padding: 6px;
+    width: 4rem;
+    margin: 0.5rem 0;
+    background-color: #515F7D;
+    border-radius: 3px;
+    border: none;
+}
+
+
+.quizBasicDetail .inputFeild{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c2c1c1;
+}
+
+.quizBasicDetail label{
+    font-size: 1.1rem;
+    margin: 0;
+    color: #7F7F7F;
+    font-weight: 500;
+}
+
+.quizBasicDetail .inputFeild input{
+    width: 15rem;
+    height: 1.3rem;
+    border: none;
+    border-bottom: 1.5px solid #7F7F7F;
+    margin-right: 0.6rem;
+}
+.quizBasicDetail .inputFeild textarea{
+    width: 15rem;
+    resize:horizontal;
+    border: none;
+    border-bottom: 1.5px solid #7F7F7F;
+    margin-right: 0.6rem;
+    font-family: sans-serif;
+    padding-top: 0.3rem;
+}
+.quizBasicDetail .inputFeild textarea:focus{
+    outline: none;
+}
+.quizBasicDetail .inputFeild input:focus{
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addNewQues{
+    width: 100%;
+    text-align: center;
+}
+
+.addNewQues button{
+    width: 9rem;
+}
+.addNewQues button:hover{
+    background-color: #748EC6;
+}
+
+.grading input[type="number"]{
+    width: 8rem;
+    border: none;
+    border-bottom: 1.5px solid #7F7F7F;
+}
+
+.grading select{
+    width: 6.5rem;
+    margin:0 0.2rem 0;
+    height: 1.6rem;
+    border: none;
+    border-bottom: 1.5px solid #7F7F7F;
+}
+.grading select:focus{
+    outline: none;
+}
+
+/* Quiz form full preview */
+
+.formHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 3rem;
+    background: #585A61;
+    color: azure;
+}
+.formHeader button{
+    text-align: center;
+    margin-left: 0.5rem;
+    padding: 6px;
+    width: 5rem;
+    margin: 0.5rem 0;
+    background-color: #748EC6;
+    border-radius: 3px;
+    border: none;
+}
+.formHeader button:hover{
+background-color: #515F7D;
+}

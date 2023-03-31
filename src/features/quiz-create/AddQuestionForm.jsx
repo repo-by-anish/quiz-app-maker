@@ -3,11 +3,16 @@ import { useState } from "react"
 
 import Dialog from '@mui/material/Dialog';
 
-var letters = ["A","B","C","D","E","G","H","I","J","K","L"];
+const letters = ["A", "B", "C", "D", "E", "G", "H", "I", "J", "K", "L"];
 
 
-const AddQuestionForm = ({ addQuestion }) => {
+const AddQuestionForm = ({ addQuestion, handleQnClose }) => {
   const [open, setOpen] = React.useState(false);
+  const [inputOption, setInputOption] = useState("");
+  const [inputQuestion, setInputQuestion] = useState("")
+  const [options, setOptions] = useState([]);
+  const [question, setQuestion] = useState("");
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -15,66 +20,92 @@ const AddQuestionForm = ({ addQuestion }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const [options,setOptions]=useState([]);
 
-  const [questionData, setQuestionData] = useState({
-    question: "",
-    options: []
-  });
+  const canAddQues = Boolean(inputQuestion);
+  const canEditQuestion = Boolean(question);
 
-  const [inputOption, setInputOption] = useState("");
-
-  const [inputQuestion, setInputQuestion] = useState("")
+  const handleInputDone = () => {
+    if (canAddQues) {
+      setQuestion(inputQuestion);
+      setInputQuestion("");
+    }
+  }
 
   const canAddOpt = Boolean(inputOption);
   const handleOptionAdd = () => {
     if (canAddOpt) {
-      setOptions(pre=>[...pre,inputOption]);
+      setOptions(pre => [...pre, inputOption]);
+      setInputOption("");
       handleClose();
     } else {
       alert("Enter Valid Argument");
     }
   }
 
-  console.log(options);
-
   const handleOptionCancle = () => {
     handleClose();
   }
 
+  const handleQuesSubmit = () => {
+    if (canEditQuestion) {
+      addQuestion({
+        question,
+        options
+      })
+      setQuestion("");
+      setOptions([]);
+      handleQnClose();
+    }
+  }
 
   return (
-    <>
+    <section className='addQuest'>
       <div className="questionVisual">
-        <p>Q: {inputQuestion}</p>
+        <p>{question ? "Q :" : "Your question will show Here..."} {question}</p>
         <div>
-          {options?.map((option,index )=> {
-            return(
+          {options?.map((option, index) => {
+            return (
               <div key={index} className="option">
-              <input type="radio" name="options" value={option} id="" />
-              <span>({letters[index]}) {option}</span>
-            </div>
+                <input type="radio" name="options" value={option} id="" />
+                <span>({letters[index]}) {option}</span>
+              </div>
             )
           })}
         </div>
       </div>
-      <label htmlFor="questionName"></label>
-      <div>
+      <div className='question-sec'>
+        <label htmlFor="questionName">Enter Question</label>
         <input value={inputQuestion} onChange={e => setInputQuestion(e.target.value)} type="text" id="questionName" />
-        {/* <button disabled={false} onClick={handleInputDone}>done</button> */}
+        {
+          canEditQuestion ? <button>Edit</button> : <button disabled={!canAddQues} onClick={handleInputDone}>Add</button>
+        }
+
       </div>
-      <button onClick={handleClickOpen}>Add Option</button>
-      {/* <button onClick={handleQuesSubmit}>Submit</button> */}
+      <div className="button-add">
+        <button disabled={!canEditQuestion} onClick={handleClickOpen}>Add Option</button>
+      </div>
+      <div className='button-submit'>
+        <button disabled={!canEditQuestion} onClick={handleQuesSubmit}>Submit</button>
+      </div>
+      <div className="buttonExit">
+        <button onClick={() => {
+          handleQnClose()
+        }}>Exit</button>
+      </div>
 
       <Dialog open={open} onClose={handleClose}>
-        <label htmlFor="optionName">Option Name</label>
-        <input value={inputOption} onChange={e => setInputOption(e.target.value)} type="text" id='optionName' />
-        <div className="actionbutton">
-          <button onClick={handleOptionAdd} disabled={!canAddOpt}>Add</button>
-          <button onClick={handleOptionCancle}>Cancle</button>
+        <div className="dialogue">
+          <div className="inputFeild">
+            <label htmlFor="optionName">Option Name</label>
+            <input value={inputOption} onChange={e => setInputOption(e.target.value)} type="text" id='optionName' />
+          </div>
+          <div className="actionbutton">
+            <button onClick={handleOptionAdd} disabled={!canAddOpt}>Add</button>
+            <button onClick={handleOptionCancle}>Cancle</button>
+          </div>
         </div>
       </Dialog>
-    </>
+    </section>
   )
 }
 

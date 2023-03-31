@@ -1,4 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import "./visualForm.css"
 
 
 const initialState = {
