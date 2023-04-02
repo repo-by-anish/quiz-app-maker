@@ -4,6 +4,10 @@ Hover #515F7D
 Headers #5777BA
 txt color -1 #585A61
 */
+
+.createQuizForm{
+    margin-top: 6rem;
+}
 .addQuest {
     width: 20rem;
     min-height: 20rem;
@@ -157,6 +161,9 @@ text-align: center;
 
 .fullFormVisual{
     min-height: 40vh;
+    margin: 0 1rem 1rem 1rem;
+    border: 1px solid #c2c1c1 ;
+    border-radius: 2px;
 }
 
 
@@ -259,6 +266,8 @@ input::-webkit-inner-spin-button {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin: 0 1rem;
+    border-radius: 3px 3px 0 0;
     height: 3rem;
     background: #585A61;
     color: azure;
@@ -275,4 +284,37 @@ input::-webkit-inner-spin-button {
 }
 .formHeader button:hover{
 background-color: #515F7D;
+}
+
+.quizdecription{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 6rem;
+    border-bottom: 1px solid #c2c1c1;
+    border-top: 1px solid #c2c1c1;
+    padding: 1rem 2rem;
+    position: relative;
+    color: #585A61;
+}
+
+.quizdecription span{
+    font-weight: 500;
+}
+
+.quizdecription .right{
+    flex:50%;
+    padding: 1rem;
+}
+.quizdecription .left{
+    flex: 50%;
+    padding: 1rem;
+}
+
+.quizName-v{
+    font-size: 1.5rem;
+    color: #515F7D;
+    margin-left: 2rem;
+    font-weight: 600;
 }

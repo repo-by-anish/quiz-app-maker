@@ -1,10 +1,114 @@
 @keyframes slideInLeft {
     0% {
         transform: translateX(-25%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-10%);
+        opacity: 0;
     }
 
     100% {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
+.quesHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.qnCont {
+    max-width: 35rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 25px #82858c;
+}
+
+.visual-card .question, .visual-card .options {
+    padding: 1.5rem 2rem;
+}
+
+.visual-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.visual-card .qNo {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 3px 3px 0 0 ;
+    background: #515F7D;
+    width: 100%;
+    border-bottom: 1px solid #82858c;
+    color: #fff;
+    margin: 0;padding: 0;
+}
+
+
+.visual-card {
+    min-height: 35rem;
+}
+
+.visual-card ul li {
+    list-style: none;
+    border: 1px solid #82858c;
+    padding: 5px;
+    border-radius: 3px;
+    width: 30rem;
+}
+
+.visual-card .question {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #515F7D;
+}
+
+.saveButton {
+    width: 100%;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.options div button {
+    padding: 10px 10px;
+    width: 5rem;
+
+    background-color: #515F7D;
+    border-radius: 3px;
+    border: none;
+}
+
+.options li input {
+    margin-right: 1rem;
+}
+
+.options li {
+    color: #82858c;
+}
+
+.nextButton, .prevButton{
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+}
+
+.nextButton{
+    background-color: #515F7D;
+}
+.prevButton{
+    color: #fff;
+    background: #82858c;
+}

@@ -1,0 +1,82 @@
+.list-quiz {
+    margin-top: 6rem;
+}
+
+@keyframes rotate {
+
+    from {
+        transform: rotate(360deg)
+    }
+
+    to {
+        transform: rotate(0deg)
+    }
+
+}
+
+.list-quiz{
+    position: relative;
+}
+
+.refresh-start {
+
+    animation-name: rotate;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: running;
+
+}
+
+.referesh-button button{
+    border: none;
+    background: none;
+    border-radius: 50%;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+.referesh-button{
+    width: 3rem;
+    position: fixed;
+    left: 3rem;
+    bottom: 3rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+/* Quiz Card */
+
+.quizCard{
+    background: #515F7D;
+    color: #7F7F7F;
+    font-weight: 700;
+    width: 15rem;
+    height: 8rem;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 3px;
+}
+.viewForm{
+border: 1px solid #7F7F7F;
+padding: 0.3rem 0.5rem;
+display: flex;
+align-items: center;
+border-radius: 3px;
+background: #7F7F7F;
+color: #515F7D;
+font-weight: 600;
+}
+
+.viewForm:hover{
+    transition: 400ms;
+    background: #c7c4c4;
+}
