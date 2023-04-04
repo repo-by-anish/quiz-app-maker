@@ -1,8 +1,8 @@
 import React from 'react'
-
-const SingleQuizTest = () => {
+import VisualForm from './VisualForm'
+const SingleQuizTest = ({quiz}) => {
   return (
-    <div>SingleQuizTest</div>
+    <VisualForm quizId={quiz.quizId} questionData={quiz.quizQnDatas}/>
   )
 }
 

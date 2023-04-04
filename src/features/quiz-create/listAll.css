@@ -1,5 +1,6 @@
 .list-quiz {
     margin-top: 6rem;
+    margin: 6rem 4rem 2rem 4rem;
 }
 
 @keyframes rotate {
@@ -14,9 +15,6 @@
 
 }
 
-.list-quiz{
-    position: relative;
-}
 
 .refresh-start {
 
@@ -57,6 +55,7 @@
     background: #515F7D;
     color: #7F7F7F;
     font-weight: 700;
+    /* margin: 1.3rem; */
     width: 15rem;
     height: 8rem;
     display:flex ;

@@ -1,0 +1,84 @@
+.singleQuiz{
+    margin-top: 6rem;
+}
+
+.quizBasicForm .header {
+    padding: 1rem 2rem;
+    margin: 0 1.5rem;
+    background: #82858c;
+    border-radius: 4px 4px 0 0;
+    color: #252e41;
+}
+.quizBasicForm .header div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form{
+    padding: 1rem 2rem;
+    margin: 0 1.5rem;
+    border: 1px solid #82858c;
+    border-radius: 0 0 4px 4px;
+text-align: center;
+}
+.form{
+    display: flex;
+    height: 10rem;
+    justify-content: space-around;
+    color: #515F7D;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.form .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.form .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.right div{
+    display: flex;
+    align-items: center;
+}
+
+.form input{
+    width: 15rem;
+    height: 1.5rem;
+    border: none;
+    border-bottom: 2px solid #515F7D;
+    margin-left: 1rem;
+    color: #82858c;
+    font-size: 1rem;
+}
+.form input:focus{
+    outline: none;
+}
+form button{
+    border: none;
+    width: 9rem;
+    color: #fff;
+    background: #4d566b;
+    font-size: 1.3rem;
+    font-weight: 500;
+    height: 3rem;
+    border-radius: 3px;
+}
+
+form button:hover{
+    background: #656e84;
+    transition: 300ms;
+}
+h3 span{
+    font-size: 1.5rem;
+}
+
+p span{
+    font-size: 1.2rem;
+    font-weight: 600;
+}

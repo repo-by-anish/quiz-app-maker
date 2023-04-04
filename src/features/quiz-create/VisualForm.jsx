@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import VisualCard from './VisualCard';
 
-const VisualForm = ({ questionData }) => {
+const VisualForm = ({ questionData,quizId }) => {
     const quizLength = questionData.length;
     const [current, setCurrent] = useState(0)
     let [Qno, setQno] = useState(1);
@@ -37,7 +37,7 @@ const VisualForm = ({ questionData }) => {
         <div className='visualForm'>
             {questionData !== [] ?
                 <div className='qnCont'>
-                    <VisualCard cssAnimate={cssAnimate} question={questionData[current]} qNo={Qno} totalQn={quizLength} />
+                    <VisualCard quizId={quizId} cssAnimate={cssAnimate} question={questionData[current]} qNo={Qno} totalQn={quizLength} />
                     <div className="quesHead">
                         <button className='prevButton' onClick={handlePrevious} disabled={!canGoPrev || cssAnimate}>{"<<Previous"}</button>
                         <button className='nextButton' disabled={!canGoNext || cssAnimate} onClick={handleNext}>{"Next>>"}</button>

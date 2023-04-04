@@ -52,11 +52,10 @@ const CreateQuizForm = () => {
         }])
     }
     const canSubmitQuestion = Boolean(dataPrepared.quizName) && Boolean(dataPrepared.quizDesc) && Boolean(dataPrepared.quizGrade) && Boolean(dataPrepared.quizDuration)&& Boolean(dataPrepared.quizQnDatas)&&requestStatus==="idle";
-    const handleFinealSubmit = () => {
+    const handleFinealSubmit = async() => {
         if(canSubmitQuestion){
             try {
-                console.log("Clicked");
-                dispatch(addNewQuize({...dataPrepared})).unwrap();
+               const response= await dispatch(addNewQuize({...dataPrepared}));
                 setDataPrepared({
                     quizName: "",
                     quizDesc: "",
@@ -64,6 +63,7 @@ const CreateQuizForm = () => {
                     quizDuration: "",
                     quizQnDatas: ""
                 })
+                alert(response.payload.message)
             } catch (error) {
                console.log(error) 
             } 

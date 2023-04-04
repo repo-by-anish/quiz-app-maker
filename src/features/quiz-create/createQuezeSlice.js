@@ -137,7 +137,6 @@ export const fetchQuizes = createAsyncThunk("quizes/fetchQuese", async () => {
 
 export const addNewQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz)=>{
     const inputQuiz={...initialQuiz,quizId:nanoid(),quizCreatDate:new Date()};
-    console.log(initialQuiz.quizQnDatas);
     try {
         const response =await axios.post(QUIZ_URL,inputQuiz);
         return response.data;
@@ -151,24 +150,7 @@ const createQuizSlice = createSlice({
     name: "quizes",
     initialState,
     reducers: {
-        // addnewQuize: {
-        //     reducer: (state, action) => {
-        //         state.quizes.push(action.payload);
-        //     },
-        //     prepare(quizData) {
-        //         return {
-        //             payload: {
-        //                 quizName: quizData.quizName,
-        //                 quizId: nanoid(),
-        //                 quizDesc: quizData.quizDesc,
-        //                 totalPoint: quizData.totalPoint,
-        //                 quizCreatDate: new Date().getDate(),
-        //                 timeLimit: quizData.timeLimit,
-        //                 quizQuesOpt: quizData.quizQuesOpt
-        //             }
-        //         }
-        //     }
-        // }
+        
     },
     extraReducers(builder) {
         builder
@@ -197,7 +179,5 @@ export const getQuizById = (state, quizId) => state.quizes.quizes.find(quiz=>qui
 
 export const getQuizStatus=(state)=>state.quizes.status;
 export const getQuizError=(state)=>state.quizes.error;
-
-// export const { addnewQuize } = createQuizSlice.actions;
 
 export default createQuizSlice.reducer;
