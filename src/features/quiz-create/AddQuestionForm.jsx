@@ -75,9 +75,13 @@ const AddQuestionForm = ({ addQuestion, handleQnClose }) => {
       </div>
       <div className='question-sec'>
         <label htmlFor="questionName">Enter Question</label>
-        <input value={inputQuestion} onChange={e => setInputQuestion(e.target.value)} type="text" id="questionName" />
+        <input value={inputQuestion} disabled={canEditQuestion} onChange={e => {
+           if (e.target.value) {
+            return setInputQuestion(e.target.value)
+          }
+        }} type="text" id="questionName" />
         {
-          canEditQuestion ? <button>Edit</button> : <button disabled={!canAddQues} onClick={handleInputDone}>Add</button>
+          canEditQuestion ? <button>Edit</button> : <button onClick={handleInputDone}>Add</button>
         }
 
       </div>

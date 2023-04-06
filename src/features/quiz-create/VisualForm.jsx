@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import VisualCard from './VisualCard';
 
-const VisualForm = ({ questionData,quizId }) => {
+const VisualForm = ({ questionData,quizId,setQuesData }) => {
     const quizLength = questionData.length;
-    const [current, setCurrent] = useState(0)
     let [Qno, setQno] = useState(1);
     const [cssAnimate, setCssAnimate] = useState(true);
 
@@ -14,7 +13,6 @@ const VisualForm = ({ questionData,quizId }) => {
 
     const handlePrevious = () => {
         if (canGoPrev) {
-            setCurrent(prev => --prev);
             setQno(prev => --prev);
             setCssAnimate(true)
         }
@@ -22,7 +20,6 @@ const VisualForm = ({ questionData,quizId }) => {
 
     const handleNext = () => {
         if (canGoNext) {
-            setCurrent(prev => ++prev);
             setQno(prev => ++prev);
             setCssAnimate(true);
         }
@@ -37,7 +34,7 @@ const VisualForm = ({ questionData,quizId }) => {
         <div className='visualForm'>
             {questionData !== [] ?
                 <div className='qnCont'>
-                    <VisualCard quizId={quizId} cssAnimate={cssAnimate} question={questionData[current]} qNo={Qno} totalQn={quizLength} />
+                    <VisualCard setQuesData={setQuesData} quizId={quizId} cssAnimate={cssAnimate} qNo={Qno} setQno={setQno} questionData={questionData} totalQn={quizLength} />
                     <div className="quesHead">
                         <button className='prevButton' onClick={handlePrevious} disabled={!canGoPrev || cssAnimate}>{"<<Previous"}</button>
                         <button className='nextButton' disabled={!canGoNext || cssAnimate} onClick={handleNext}>{"Next>>"}</button>

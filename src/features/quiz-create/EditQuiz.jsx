@@ -1,29 +1,38 @@
-import { useDispatch } from "react-redux";
-import { addNewQuize } from "./createQuezeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import AddQuestionForm from "./AddQuestionForm";
+import { getQuizById, updateQuize } from "./createQuezeSlice";
 import Dialog from '@mui/material/Dialog';
 import "./quizCreate.css";
 import { useEffect, useState } from "react";
 import VisualForm from "./VisualForm";
 import Header from "../../components/Header";
+import { useParams } from "react-router-dom";
 
 
 
-const CreateQuizForm = () => {
+const EditQuiz = () => {
+    const Navigate=useNavigate();
     const dispatch = useDispatch();
-    const [quesData, setQuesData] = useState([]);
+    const { quizId } = useParams();
+    const quiz = useSelector((state) => getQuizById(state, quizId));
+    console.log(quiz);
+    const [quesData, setQuesData] = useState(quiz.quizQnDatas);
     const [open, setOpen] = useState(false);
     const [requestStatus, setRequestStatus] = useState("idle");
-    const [quizName, setQuizName] = useState("");
-    const [quizDesc, setQuizDesc] = useState("");
-    const [grade, setGrade] = useState(0);
-    const [gradeSys, setGradeSys] = useState("");
-    const [quizDuration, setquizDuration] = useState(0);
+    const [quizName, setQuizName] = useState(quiz.quizName);
+    const [quizDesc, setQuizDesc] = useState(quiz.quizDesc);
+    const [grade, setGrade] = useState(quiz.quizGrade.grade);
+    const [gradeSys, setGradeSys] = useState(quiz.quizGrade.gradeSys);
+    const [quizDuration, setquizDuration] = useState(quiz.quizDuration);
     const [dataPrepared, setDataPrepared] = useState({
-        quizName: "",
-        quizDesc: "",
-        quizGrade: {},
-        quizDuration: 0,
+        quizName: quizName,
+        quizDesc: quizDesc,
+        quizGrade: {
+            grade,
+            gradeSys
+        },
+        quizDuration: quizDuration,
         quizQnDatas: quesData
     })
 
@@ -54,24 +63,29 @@ const CreateQuizForm = () => {
     }
     const canSubmitQuestion = Boolean(dataPrepared.quizName) && Boolean(dataPrepared.quizDesc) && Boolean(dataPrepared.quizGrade) && Boolean(dataPrepared.quizDuration) && Boolean(dataPrepared.quizQnDatas) && requestStatus === "idle";
     const handleFinealSubmit = async () => {
-        if (canSubmitQuestion) {
-            try {
-                const response = await dispatch(addNewQuize({ ...dataPrepared }));
-                setDataPrepared({
-                    quizName: "",
-                    quizDesc: "",
-                    quizGrade: {},
-                    quizDuration: "",
-                    quizQnDatas: ""
-                })
-                setQuesData([]);
-                alert(response.payload.message)
-            } catch (error) {
-                console.log(error)
+        const id = quiz._id;
+        try {
+            if (canSubmitQuestion) {
+                const response = await dispatch(updateQuize({ id, ...dataPrepared }));
+                if (response) {
+                    setDataPrepared({
+                        quizName: "",
+                        quizDesc: "",
+                        quizGrade: {},
+                        quizDuration: "",
+                        quizQnDatas: ""
+                    })
+                    setQuesData([]);
+                    alert(response.payload.message)
+                    console.log(response);
+                    Navigate("/")
+                }
             }
-            finally {
-                setRequestStatus("idle");
-            }
+        } catch (error) {
+            console.log(error);
+        }
+        finally {
+            setRequestStatus("idle");
         }
     }
 
@@ -142,28 +156,28 @@ const CreateQuizForm = () => {
             <div className="createQuizForm">
                 <div className="formHeader">
                     <h3>Live preview of quiz form</h3>
-                    <button disabled={!canSubmitQuestion} onClick={handleFinealSubmit}>Finish</button>
+                    <button disabled={!canSubmitQuestion} onClick={handleFinealSubmit}>Finish Edit</button>
                 </div>
                 {
-                    canViewfullHead?<div className="fullFormVisual">
-                    {dataPrepared.quizName ? <p className="quizName-v"><span>Quiz Name:</span> {dataPrepared.quizName}</p> : ""}
-                    <div className="quizdecription">
-                        <div className="left">
-                            {dataPrepared.quizGrade.grade ? <p><span>Points Distribution:</span> {dataPrepared.quizGrade?.grade + " "} Points ({dataPrepared.quizGrade?.gradeSys})</p> : ""}
-                            {dataPrepared.quizDuration ? <p><span>TimeLeft:</span> {dataPrepared.quizDuration}</p> : ""}
+                    canViewfullHead ? <div className="fullFormVisual">
+                        {dataPrepared.quizName ? <p className="quizName-v"><span>Quiz Name:</span> {dataPrepared.quizName}</p> : ""}
+                        <div className="quizdecription">
+                            <div className="left">
+                                {dataPrepared.quizGrade.grade ? <p><span>Points Distribution:</span> {dataPrepared.quizGrade?.grade + " "} Points ({dataPrepared.quizGrade?.gradeSys})</p> : ""}
+                                {dataPrepared.quizDuration ? <p><span>TimeLeft:</span> {dataPrepared.quizDuration}</p> : ""}
+                            </div>
+                            <div className="right">
+                                {dataPrepared.quizDesc ? <p><span>Description</span>: {dataPrepared.quizDesc.substring(0, 100)}...</p> : ""}
+                            </div>
                         </div>
-                        <div className="right">
-                            {dataPrepared.quizDesc ? <p><span>Description</span>: {dataPrepared.quizDesc.substring(0, 100)}...</p> : ""}
-                        </div>
-                    </div>
-                    {quesData.length?<VisualForm setQuesData={setQuesData} questionData={quesData} />:""}
-                </div>:""
+                        {quesData.length ? <VisualForm setQuesData={setQuesData} questionData={quesData} /> : ""}
+                    </div> : ""
                 }
                 <div className="quizBasicDetail">
                     <div className="quizname">
                         <label htmlFor="qname">Quiz Name</label>
                         <div className="inputFeild">
-                            <input value={quizName} onChange={e => setQuizName(e.target.value)} placeholder="Enter Quiz Name" type="text" id="qname" />
+                            <input autoComplete="off" value={quizName} onChange={e => setQuizName(e.target.value)} placeholder="Enter Quiz Name" type="text" id="qname" />
                             <button disabled={!quizName} onClick={handleAddQname}>Add</button>
                         </div>
                     </div>
@@ -191,7 +205,7 @@ const CreateQuizForm = () => {
                     <div className="quizDuration">
                         <label htmlFor="qTLimit">Time Limit</label>
                         <div className="inputFeild">
-                            <input value={quizDuration} onChange={e => setquizDuration(e.target.value)} placeholder="Enter Time Limit(In Minutes)" type="number" id="qTLimit" />
+                            <input autoComplete="off" value={quizDuration} onChange={e => setquizDuration(e.target.value)} placeholder="Enter Time Limit(In Minutes)" type="number" id="qTLimit" />
                             <button disabled={!quizDuration} onClick={handleAddQlimit}>Add</button>
                         </div>
                     </div>
@@ -207,4 +221,4 @@ const CreateQuizForm = () => {
     )
 }
 
-export default CreateQuizForm
+export default EditQuiz

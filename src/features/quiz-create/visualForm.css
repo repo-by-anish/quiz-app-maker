@@ -15,6 +15,7 @@
     }
 }
 
+
 .quesHead {
     display: flex;
     flex-direction: row;
@@ -63,6 +64,8 @@
 .visual-card ul li {
     list-style: none;
     border: 1px solid #82858c;
+    display: flex;
+    align-items: center;
     padding: 5px;
     border-radius: 3px;
     width: 30rem;
@@ -71,6 +74,9 @@
 .visual-card .question {
     font-size: 1.3rem;
     font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #515F7D;
 }
 
@@ -98,17 +104,44 @@
 }
 
 .nextButton, .prevButton{
-    width: 5rem;
-    height: 2rem;
+    width: 6rem;
+    height: 2.5rem;
     text-align: center;
     border: none;
     border-radius: 3px;
 }
 
 .nextButton{
+    width: 7rem;
     background-color: #515F7D;
 }
 .prevButton{
     color: #fff;
     background: #82858c;
+}
+
+.visualForm2{
+    min-height: 100vh;
+    margin-top: 0;
+}
+
+.controllQuizHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 3.5rem;
+    color: #82858c;
+    border-bottom: 1px solid #b3b6bc;
+    align-items: center;
+}
+.controllQuizHeader span{
+    font-size: 1.2rem;
+    color: #515F7D;
+}
+.controllQuizHeader button{
+    width: 6rem;
+    height: 2.7rem;
+    border: none;
+    color: #fff;
+    background-color: #515F7D;
+    border-radius: 3px;
 }

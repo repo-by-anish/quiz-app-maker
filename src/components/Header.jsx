@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+ const Header = () => {
     return (
         <div>
             <div id="main-navbar" className="navbar">
@@ -21,3 +21,5 @@ export const Header = () => {
         </div>
     );
 };
+
+export default Header

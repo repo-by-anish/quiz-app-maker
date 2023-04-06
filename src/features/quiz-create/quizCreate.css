@@ -168,10 +168,10 @@ text-align: center;
 
 
 .quizBasicDetail{
-    padding: 2rem 3rem;
+    padding: 3rem 4rem;
     margin:1rem 1rem ;
-    border-radius: 3px;
-    box-shadow: #585A61 0 0 20px;
+    border-radius: 0 0 3px 3px;
+    border: 1px solid #7F7F7F;
 }
 
 .quizBasicDetail button{
@@ -313,8 +313,11 @@ background-color: #515F7D;
 }
 
 .quizName-v{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #515F7D;
     margin-left: 2rem;
     font-weight: 600;
+}
+.quizName-v span{
+    font-size: 1.4rem;
 }

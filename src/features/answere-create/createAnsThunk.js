@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const API_URL = "http://localhost:3500/answere"
@@ -22,9 +22,7 @@ export const addAnswere = createAsyncThunk("answere/addAnswere", async (initialA
 export const updateAns = createAsyncThunk("answere/updateAns", async (updateData) => {
     try {
         const response = await axios.patch(API_URL, updateData);
-        if (response) {
-            return response.data;
-        }
+        return response.data;
     } catch (err) {
         return { message: "couldn't save Answere" + err }
     }

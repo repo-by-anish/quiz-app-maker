@@ -144,6 +144,15 @@ export const addNewQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz
         return error.message;
     }
 })
+export const updateQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz)=>{
+    const inputQuiz={...initialQuiz,updateDate:new Date().toLocaleDateString};
+    try {
+        const response =await axios.patch(QUIZ_URL,inputQuiz);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+})
 
 
 const createQuizSlice = createSlice({
@@ -165,10 +174,6 @@ const createQuizSlice = createSlice({
             .addCase(fetchQuizes.rejected, (state, action) => {
                 state.status = "failed"
                 state.error = action.error.message;
-            })
-            .addCase(addNewQuize.fulfilled,(state, action)=>{
-                // action.payload.quizCreatDate=new Date().toISOString();
-                // state.quizes=action.payload;
             })
     }
 })

@@ -5,6 +5,7 @@ import { getAllQuizes, getQuizStatus, getQuizError, fetchQuizes } from "./create
 import { Box, CircularProgress, Grid } from "@mui/material";
 import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
 import ListQuizCard from "./ListQuizCard";
+import Header from "../../components/Header"
 
 const ListAllQuizes = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,8 @@ const ListAllQuizes = () => {
       dispatch(fetchQuizes());
     }
   }, [quizStatus, dispatch])
-  if(!Array.isArray(quizes)){
-    quizes=[]
+  if (!Array.isArray(quizes)) {
+    quizes = []
   }
   let content;
 
@@ -34,7 +35,7 @@ const ListAllQuizes = () => {
 
 
   if (quizStatus === "fullfield") {
-    if(quizes.length){
+    if (quizes.length) {
       content = quizes?.map((quiz) => {
         return (
           <Grid item xs={2} sm={4} md={4} key={quiz.quizId}>
@@ -56,22 +57,25 @@ const ListAllQuizes = () => {
     }, 800);
   }
 
-  if(quizes.length===0){
-    content=<div>
+  if (quizes.length === 0) {
+    content = <div>
       <h3>No Quizes Found</h3>
       <p>Click <b>Create</b> button above to create new form</p>
     </div>
   }
 
   return (
-    <div className="list-quiz">
-      <div onClick={refreshAnimate} className="referesh-button">
-        <button onClick={refreshQuizCard} className={refAnim} ><ReplayRoundedIcon fontSize="large" /></button>
+    <>
+      <Header />
+      <div className="list-quiz">
+        <div onClick={refreshAnimate} className="referesh-button">
+          <button onClick={refreshQuizCard} className={refAnim} ><ReplayRoundedIcon fontSize="large" /></button>
+        </div>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+          {content}
+        </Grid>
       </div>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {content}
-      </Grid>
-    </div>
+    </>
   )
 }
 

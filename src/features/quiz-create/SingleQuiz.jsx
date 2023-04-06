@@ -3,11 +3,16 @@ import { useState } from "react";
 // import { Link } from "react-router-dom"
 import SingleQuizBsic from "./SingleQuizBsic";
 import SingleQuizTest from "./SingleQuizTest";
-import { addAnswere, updateAns } from '../answere-create/createAnsThunk'
+import { addAnswere} from '../answere-create/createAnsThunk'
 import { useDispatch } from "react-redux";
+import Rating from "./Rating";
+
 
 const SingleQuiz = ({ quiz }) => {
     const dispatch = useDispatch();
+    const [reqId,setReqId]=useState("");
+    const [finalSubmitted,setFinalSubmitted]=useState(false);
+    const [timeLeft,setTimeLeft]=useState(0);
     const basicSubmit = async(basicData) => {
         const prepareData = {
             studentName: basicData.stName,
@@ -19,18 +24,18 @@ const SingleQuiz = ({ quiz }) => {
         }
         const response = await dispatch(addAnswere({...prepareData}))
         if (response) {
-            console.log(response);
+            setReqId(response.payload.id);
+            setTimeLeft(quiz.quizDuration*60);
             setIsSubmitted(true)
         }
     }
     const [isSubmited, setIsSubmitted] = useState(false);
-
-    const submitted = (value) => {
-        setIsSubmitted(value)
-    }
     return (
         <div className='singleQuiz'>
-            <SingleQuizTest quiz={quiz} /> 
+        {
+            finalSubmitted?<Rating/>:isSubmited?<SingleQuizTest setFinalSubmitted={setFinalSubmitted} timeLeft={timeLeft} id={reqId}  quiz={quiz} /> :<SingleQuizBsic quiz={quiz} basicSubmit={basicSubmit}/>
+        }
+            
         </div>
     )
 }
