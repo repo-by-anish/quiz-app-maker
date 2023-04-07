@@ -6,24 +6,26 @@ import "./quizCreate.css";
 import { useEffect, useState } from "react";
 import VisualForm from "./VisualForm";
 import Header from "../../components/Header";
+import { useNavigate } from "react-router-dom";
 
 
 
 const CreateQuizForm = () => {
     const dispatch = useDispatch();
+    const Navigate=useNavigate();
     const [quesData, setQuesData] = useState([]);
     const [open, setOpen] = useState(false);
     const [requestStatus, setRequestStatus] = useState("idle");
     const [quizName, setQuizName] = useState("");
     const [quizDesc, setQuizDesc] = useState("");
-    const [grade, setGrade] = useState(0);
+    const [grade, setGrade] = useState();
     const [gradeSys, setGradeSys] = useState("");
-    const [quizDuration, setquizDuration] = useState(0);
+    const [quizDuration, setquizDuration] = useState();
     const [dataPrepared, setDataPrepared] = useState({
         quizName: "",
         quizDesc: "",
         quizGrade: {},
-        quizDuration: 0,
+        quizDuration: "",
         quizQnDatas: quesData
     })
 
@@ -66,6 +68,7 @@ const CreateQuizForm = () => {
                 })
                 setQuesData([]);
                 alert(response.payload.message)
+                Navigate("/")
             } catch (error) {
                 console.log(error)
             }
@@ -163,7 +166,7 @@ const CreateQuizForm = () => {
                     <div className="quizname">
                         <label htmlFor="qname">Quiz Name</label>
                         <div className="inputFeild">
-                            <input value={quizName} onChange={e => setQuizName(e.target.value)} placeholder="Enter Quiz Name" type="text" id="qname" />
+                            <input autoComplete="off" value={quizName} onChange={e => setQuizName(e.target.value)} placeholder="Enter Quiz Name" type="text" id="qname" />
                             <button disabled={!quizName} onClick={handleAddQname}>Add</button>
                         </div>
                     </div>
@@ -178,7 +181,7 @@ const CreateQuizForm = () => {
                         <label htmlFor="qgrade">Point/Grade System</label>
                         <div className="inputFeild grading">
                             <div>
-                                <input value={grade} onChange={e => setGrade(e.target.value)} placeholder="Enter Grade/Point" type="number" id="qgrade" />
+                                <input autoComplete="off" value={grade} onChange={e => setGrade(e.target.value)} placeholder="Enter Grade/Point" type="number" id="qgrade" />
                                 <select value={gradeSys} onChange={e => setGradeSys(e.target.value)} name="grade" id="qgrade">
                                     <option value=""></option>
                                     <option value="Per Question">Per Question</option>
@@ -191,7 +194,7 @@ const CreateQuizForm = () => {
                     <div className="quizDuration">
                         <label htmlFor="qTLimit">Time Limit</label>
                         <div className="inputFeild">
-                            <input value={quizDuration} onChange={e => setquizDuration(e.target.value)} placeholder="Enter Time Limit(In Minutes)" type="number" id="qTLimit" />
+                            <input autoComplete="off" value={quizDuration} onChange={e => setquizDuration(e.target.value)} placeholder="Enter Time Limit(In Minutes)" type="number" id="qTLimit" />
                             <button disabled={!quizDuration} onClick={handleAddQlimit}>Add</button>
                         </div>
                     </div>

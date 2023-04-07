@@ -16,7 +16,6 @@ const EditQuiz = () => {
     const dispatch = useDispatch();
     const { quizId } = useParams();
     const quiz = useSelector((state) => getQuizById(state, quizId));
-    console.log(quiz);
     const [quesData, setQuesData] = useState(quiz.quizQnDatas);
     const [open, setOpen] = useState(false);
     const [requestStatus, setRequestStatus] = useState("idle");

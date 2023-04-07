@@ -28,8 +28,8 @@ const ListAllQuizes = () => {
   }
 
   if (quizStatus === "loading") {
-    content = <Box sx={{ display: "flex" }}>
-      <CircularProgress />
+    content = <Box sx={{ width:"100%", height:"100vh", display:"flex", justifyContent:"space-around" }}>
+      <CircularProgress  sx={{marginLeft:"auto", marginRight:"auto"}}/>
     </Box>
   }
 
@@ -71,7 +71,10 @@ const ListAllQuizes = () => {
         <div onClick={refreshAnimate} className="referesh-button">
           <button onClick={refreshQuizCard} className={refAnim} ><ReplayRoundedIcon fontSize="large" /></button>
         </div>
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <div className="message">
+          <h4>Not listed created quiz Just Refres It.</h4>
+        </div>
+        <Grid  container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           {content}
         </Grid>
       </div>

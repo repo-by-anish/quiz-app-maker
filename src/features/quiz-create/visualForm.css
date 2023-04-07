@@ -145,3 +145,28 @@
     background-color: #515F7D;
     border-radius: 3px;
 }
+
+@media screen and (max-width: 992px){
+    .visual-card ul li{
+        width: auto;
+    }
+    .options ul{
+        padding-inline-start: 0;
+    }
+    .visual-card{
+        min-height: auto;
+    }
+    .question p{
+        font-size: 1rem;
+    }
+    .options li{
+        font-size: 0.85rem;
+    }
+    .visual-card .question{
+        padding: 0;
+    }
+
+    .qnCont{
+        max-width: 20rem;
+    }
+}

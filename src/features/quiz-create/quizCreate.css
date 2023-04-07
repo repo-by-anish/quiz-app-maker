@@ -23,6 +23,7 @@ txt color -1 #585A61
 
 }
 
+
 .button-add {
     
     width: 100%;
@@ -123,7 +124,7 @@ position: relative;
 }
 
 .dialogue{
-height: 8rem;
+height: 10rem;
 position: relative;
 width: 10rem;
 text-align: center;
@@ -320,4 +321,44 @@ background-color: #515F7D;
 }
 .quizName-v span{
     font-size: 1.4rem;
+}
+
+@media screen and (max-width: 600px) {
+    .quizName-v span{
+        font-size: 1rem;
+    }
+    .quizName-v{
+        font-size: 0.8rem;
+    }
+    p span{
+        font-size: 1rem;
+    }
+    .button-submit{
+        width: auto;
+    }
+    .button-submit button{
+        width: 7rem;
+    }
+
+    .button-add{
+        width: auto;
+    }
+
+    .button-add button{
+        width: 5rem;
+        font-size: 0.7rem;
+    }
+
+    .addQuest{
+        width: auto;
+    }
+
+.inputFeild label{
+    font-size: 1rem;
+    margin: 0.7rem 0;
+}
+.inputFeild input{
+    font-size: 0.8rem;
+    margin-bottom: 0.7rem;
+}
 }

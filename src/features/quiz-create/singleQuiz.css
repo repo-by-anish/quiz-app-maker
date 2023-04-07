@@ -82,3 +82,56 @@ p span{
     font-size: 1.2rem;
     font-weight: 600;
 }
+
+@media screen and (max-width: 600px){
+p span{
+    font-size: 1rem;
+}
+p{
+    font-size: 0.8rem;
+}
+.header h3{
+    font-size: 1rem;
+    margin: 0;padding: 0;
+}
+
+.header h3 span{
+    font-size: 1.2rem;
+}
+.quizdecription{
+    padding: 0.7rem;
+    min-height: auto;
+}
+.visualForm{
+    margin: 0;
+}
+.quizBasicForm .header{
+    padding: 0.5rem;
+}
+.form{
+    display: inline;
+    text-align: left;
+}
+form{
+    padding: 0.4rem;
+}
+
+form button{
+    margin-top: 1.5rem;
+}
+
+.form input{
+    width: 10rem;
+}
+.form label{
+    font-size: 1rem;
+}
+.form .left div{
+display: flex;
+}
+
+.form .right{
+display: flex;
+}
+
+}
