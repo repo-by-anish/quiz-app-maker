@@ -117,7 +117,7 @@ import axios from "axios";
 //     ],
 // }
 
-const QUIZ_URL = "http://localhost:3500/quiz"
+const QUIZ_URL = "https://black-pigeon-tie.cyclic.app/quiz"
 
 const initialState = {
     name: "quizes",
