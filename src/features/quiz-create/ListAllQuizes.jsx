@@ -58,7 +58,7 @@ const ListAllQuizes = () => {
   }
 
   if (quizes.length === 0) {
-    content = <div>
+    content = <div className="noquiz">
       <h3>No Quizes Found</h3>
       <p>Click <b>Create</b> button above to create new form</p>
     </div>

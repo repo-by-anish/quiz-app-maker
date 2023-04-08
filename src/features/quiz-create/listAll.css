@@ -1,1 +1,98 @@
-@keyframes rotate{0%{transform:rotate(360deg)}to{transform:rotate(0deg)}}.list-quiz{margin:6rem 4rem 2rem;text-align:center}.message{height:5rem;margin-top:auto;margin-bottom:auto;border:1px solid #515f7d;margin:1rem 0;border-radius:2px;color:#515f7d}.refresh-start{animation-name:rotate;animation-duration:.8s;animation-iteration-count:infinite;animation-timing-function:linear;animation-play-state:running}.referesh-button button{border:0;background:0 0;border-radius:50%;color:#333;margin:0;padding:0}.referesh-button{width:3rem;position:fixed;left:3rem;bottom:3rem;height:3rem;display:flex;flex-direction:column;justify-content:space-around;align-items:center}.quizCard,.viewForm{display:flex;align-items:center;border-radius:3px}.quizCard{background:#515f7d;color:#7f7f7f;font-weight:700;width:15rem;height:8rem;flex-direction:column;justify-content:space-around}.viewForm{border:1px solid #7f7f7f;padding:.3rem .5rem;background:#7f7f7f;color:#515f7d;font-weight:600}.viewForm:hover{transition:400ms;background:#c7c4c4}@media screen and (max-width:600px){.quizCard{width:7rem}.quizCard a{font-size:.8rem;padding:.3rem .4rem}}
+@keyframes rotate {
+    0% {
+        transform: rotate(360deg)
+    }
+
+    to {
+        transform: rotate(0deg)
+    }
+}
+
+.list-quiz {
+    margin: 6rem 4rem 2rem;
+    text-align: center
+}
+
+.message {
+    height: 5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 1px solid #515f7d;
+    margin: 1rem 0;
+    border-radius: 2px;
+    color: #515f7d
+}
+
+.refresh-start {
+    animation-name: rotate;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: running
+}
+
+.referesh-button button {
+    border: 0;
+    background: 0 0;
+    border-radius: 50%;
+    color: #333;
+    margin: 0;
+    padding: 0
+}
+
+.referesh-button {
+    width: 3rem;
+    position: fixed;
+    left: 3rem;
+    bottom: 3rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center
+}
+
+.quizCard,
+.viewForm {
+    display: flex;
+    align-items: center;
+    border-radius: 3px
+}
+
+.quizCard {
+    background: #515f7d;
+    color: #7f7f7f;
+    font-weight: 700;
+    width: 15rem;
+    height: 8rem;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+.viewForm {
+    border: 1px solid #7f7f7f;
+    padding: .3rem .5rem;
+    background: #7f7f7f;
+    color: #515f7d;
+    font-weight: 600
+}
+
+.viewForm:hover {
+    transition: 400ms;
+    background: #c7c4c4
+}
+.noquiz{
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width:600px) {
+    .quizCard {
+        width: 7rem
+    }
+
+    .quizCard a {
+        font-size: .8rem;
+        padding: .3rem .4rem
+    }
+}
