@@ -66,25 +66,22 @@ const AddQuestionForm = ({ addQuestion, handleQnClose }) => {
           {options?.map((option, index) => {
             return (
               <div key={index} className="option">
-                <input type="radio" name="options" value={option} id="" />
                 <span>({letters[index]}) {option}</span>
               </div>
             )
           })}
         </div>
       </div>
-      <div className='question-sec'>
+      {!question ? <div className='question-sec'>
         <label htmlFor="questionName">Enter Question</label>
         <input value={inputQuestion} disabled={canEditQuestion} onChange={e => {
-           if (e.target.value) {
+          if (e.target.value) {
             return setInputQuestion(e.target.value)
           }
         }} type="text" id="questionName" />
-        {
-          canEditQuestion ? <button>Edit</button> : <button onClick={handleInputDone}>Add</button>
-        }
+        <button onClick={handleInputDone}>Add</button>
 
-      </div>
+      </div> : ""}
       <div className="button-add">
         <button disabled={!canEditQuestion} onClick={handleClickOpen}>Add Option</button>
       </div>

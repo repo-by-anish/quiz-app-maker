@@ -136,6 +136,7 @@ export const fetchQuizes = createAsyncThunk("quizes/fetchQuese", async () => {
 })
 
 export const addNewQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz)=>{
+    console.log(initialQuiz);
     const inputQuiz={...initialQuiz,quizId:nanoid(),quizCreatDate:new Date()};
     try {
         const response =await axios.post(QUIZ_URL,inputQuiz);

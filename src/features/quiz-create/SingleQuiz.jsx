@@ -10,6 +10,7 @@ import Rating from "./Rating";
 
 const SingleQuiz = ({ quiz }) => {
     const dispatch = useDispatch();
+    const [scoreFechData,setScoreFechData]=useState({})
     const [reqId,setReqId]=useState("");
     const [finalSubmitted,setFinalSubmitted]=useState(false);
     const [timeLeft,setTimeLeft]=useState(0);
@@ -20,7 +21,7 @@ const SingleQuiz = ({ quiz }) => {
             studentSection: basicData.stSection,
             studentRollno: basicData.stRollNo,
             quizId: quiz._id,
-            answeres: []
+            score:0
         }
         const response = await dispatch(addAnswere({...prepareData}))
         if (response) {
@@ -29,11 +30,14 @@ const SingleQuiz = ({ quiz }) => {
             setIsSubmitted(true)
         }
     }
+    const fetchScoreData=(scoreData)=>{
+        setScoreFechData(scoreData)
+    }
     const [isSubmited, setIsSubmitted] = useState(false);
     return (
         <div className='singleQuiz'>
         {
-            finalSubmitted?<Rating/>:isSubmited?<SingleQuizTest setFinalSubmitted={setFinalSubmitted} timeLeft={timeLeft} id={reqId}  quiz={quiz} /> :<SingleQuizBsic quiz={quiz} basicSubmit={basicSubmit}/>
+            finalSubmitted?<Rating scoreData={scoreFechData}/>:isSubmited?<SingleQuizTest fetchScoreData={fetchScoreData} setFinalSubmitted={setFinalSubmitted} timeLeft={timeLeft} id={reqId}  quiz={quiz} /> :<SingleQuizBsic quiz={quiz} basicSubmit={basicSubmit}/>
         }
             
         </div>
