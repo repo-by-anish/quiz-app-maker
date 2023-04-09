@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addNewQuize } from "./createQuezeSlice";
+import { addNewQuize, fetchQuizes } from "./createQuezeSlice";
 import AddQuestionForm from "./AddQuestionForm";
 import Dialog from '@mui/material/Dialog';
 import "./quizCreate.css";
@@ -74,6 +74,7 @@ const CreateQuizForm = () => {
                 })
                 setQuesData([]);
                 alert(response.payload.message)
+                dispatch(fetchQuizes())
                 Navigate("/")
             } catch (error) {
                 console.log(error)
