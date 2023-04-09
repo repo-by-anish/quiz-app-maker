@@ -29,21 +29,21 @@ const SingleQuizBsic = ({ quiz,basicSubmit }) => {
           <div className="left">
             <div>
               <label htmlFor="name">Enter Name: </label>
-              <input onChange={e => setStName(e.target.value)} value={stName} type="text" id="name" />
+              <input autoComplete='off' onChange={e => setStName(e.target.value)} value={stName} type="text" id="name" />
             </div>
             <div>
               <label htmlFor="emailId">Enter Email: </label>
-              <input onChange={e => setStEmail(e.target.value)} value={stEmail} type="text" id="emailId" />
+              <input autoComplete='off' onChange={e => setStEmail(e.target.value)} value={stEmail} type="text" id="emailId" />
             </div>
           </div>
           <div className="right">
             <div>
               <label htmlFor="section">Enter Section: </label>
-              <input onChange={e => setStSection(e.target.value)} value={stSection} type="text" id="section" />
+              <input autoComplete='off' onChange={e => setStSection(e.target.value)} value={stSection} type="text" id="section" />
             </div>
             <div>
               <label htmlFor="roll">Enter Roll No: </label>
-              <input onChange={e => setStRollNo(e.target.value)} value={stRollNo} type="text" id="roll" />
+              <input autoComplete='off' onChange={e => setStRollNo(e.target.value)} value={stRollNo} type="text" id="roll" />
             </div>
           </div>
         </div>

@@ -74,7 +74,7 @@ const AddQuestionForm = ({ addQuestion, handleQnClose }) => {
       </div>
       {!question ? <div className='question-sec'>
         <label htmlFor="questionName">Enter Question</label>
-        <input value={inputQuestion} disabled={canEditQuestion} onChange={e => {
+        <input autoComplete='off' value={inputQuestion} disabled={canEditQuestion} onChange={e => {
           if (e.target.value) {
             return setInputQuestion(e.target.value)
           }
@@ -98,7 +98,7 @@ const AddQuestionForm = ({ addQuestion, handleQnClose }) => {
         <div className="dialogue">
           <div className="inputFeild">
             <label htmlFor="optionName">Option Name</label>
-            <input value={inputOption} onChange={e => setInputOption(e.target.value)} type="text" id='optionName' />
+            <input autoComplete='off' value={inputOption} onChange={e => setInputOption(e.target.value)} type="text" id='optionName' />
           </div>
           <div className="actionbutton">
             <button onClick={handleOptionAdd} disabled={!canAddOpt}>Add</button>
