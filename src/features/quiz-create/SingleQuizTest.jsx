@@ -170,7 +170,7 @@ const SingleQuizTest = ({ id, quiz, timeLeft, setFinalSubmitted, fetchScoreData 
                   {question.options.map((option, index) => {
                     return (<ul key={index} style={cssAnimate ? { animation: "0.5s ease-out 0s 1 slideInLeft" } : {}}>
                       <li>
-                        <input type="checkbox" onChange={handleInpChange} checked={nextClick ? false : null} value={selectedAns} name={`${Letters[index]}`} />
+                        <input autoComplete='off' type="checkbox" onChange={handleInpChange} checked={nextClick ? false : null} value={selectedAns} name={`${Letters[index]}`} />
                         ({Letters[index]}) {option}
                       </li>
                     </ul>)

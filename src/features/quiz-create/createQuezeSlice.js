@@ -137,7 +137,7 @@ export const fetchQuizes = createAsyncThunk("quizes/fetchQuese", async () => {
 
 export const addNewQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz)=>{
     console.log(initialQuiz);
-    const inputQuiz={...initialQuiz,quizId:nanoid(),quizCreatDate:new Date()};
+    const inputQuiz={...initialQuiz,quizId:nanoid(),quizCreatDate:new Date().toLocaleDateString()};
     try {
         const response =await axios.post(QUIZ_URL,inputQuiz);
         return response.data;
@@ -146,7 +146,7 @@ export const addNewQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz
     }
 })
 export const updateQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz)=>{
-    const inputQuiz={...initialQuiz,updateDate:new Date().toLocaleDateString};
+    const inputQuiz={...initialQuiz,updateDate:new Date().toLocaleDateString()};
     try {
         const response =await axios.patch(QUIZ_URL,inputQuiz);
         return response.data;
