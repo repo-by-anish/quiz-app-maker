@@ -72,7 +72,7 @@ const ListAllQuizes = () => {
           <button onClick={refreshQuizCard} className={refAnim} ><ReplayRoundedIcon fontSize="large" /></button>
         </div>
         <div className="message">
-          <h4>Not listed created quiz Just Refres It.</h4>
+          <h4>Can't see the quiz? Just Refresh!</h4>
         </div>
         <Grid  container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           {content}
