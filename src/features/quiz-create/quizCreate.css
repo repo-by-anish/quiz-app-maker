@@ -1,1 +1,345 @@
-.createQuizForm{margin-top:6rem}.addQuest{width:20rem;min-height:20rem;position:relative}.button-add button{padding:10px;margin:.5rem 1.5rem;background-color:#515f7d;border-radius:3px;border:0}.button-add{width:100%;display:flex;flex-direction:column;align-items:center}.addNewQues button:hover,.button-add button:hover{background-color:#748ec6}.questionVisual{min-height:3rem;padding:1.5rem}.questionVisual p{font-size:1.3rem;color:#585a61;font-weight:600}.question-sec{display:flex;flex-direction:column;padding:.5rem 1.5rem}.question-sec input{margin:.3rem 0;padding:5px}.question-sec button{width:2rem;margin-left:auto;margin-top:.2rem;color:#29344a;background:#7f7f7f;border:0;padding:3px 5px;border-radius:2px;font-size:.75rem}.question-sec input:focus{outline:0;color:#585a61}button{cursor:pointer;color:#fff}.questionVisual .option{display:flex;flex-direction:row;color:#585a61;font-weight:500}.questionVisual .option span{margin-left:.3rem}.button-submit{position:relative;width:100%;z-index:1;display:flex;flex-direction:column;align-items:center}.buttonExit{width:100%}.buttonExit button{float:right;margin:.5rem;color:#29344a;background:#7f7f7f;border:0;padding:3px 5px;border-radius:2px;font-size:.75rem}.button-submit button{position:static;padding:10px;margin:.5rem 1.5rem;background-color:#515f7d;border-radius:3px;border:0}.dialogue{height:10rem;position:relative;width:10rem;text-align:center}.inputFeild{display:flex;flex-direction:column}.actionbutton{position:absolute;display:flex;justify-content:space-around;width:100%;bottom:1rem}.actionbutton button{background:#515f7d;height:1.5rem;border-radius:3px;width:4rem;border:0}.dialogue input{margin:.3rem 1rem;padding:5px}.fullFormVisual{min-height:40vh;margin:0 1rem 1rem;border:1px solid #c2c1c1;border-radius:2px}.quizBasicDetail{padding:3rem 4rem;margin:1rem;border-radius:0 0 3px 3px;border:1px solid #7f7f7f}.quizBasicDetail button{text-align:center;padding:6px;width:4rem;margin:.5rem 0;background-color:#515f7d;border-radius:3px;border:0}.quizBasicDetail .inputFeild{display:flex;align-items:center;flex-direction:row;padding-bottom:1rem;border-bottom:1px solid #c2c1c1}.quizBasicDetail label{font-size:1.1rem;margin:0;color:#7f7f7f;font-weight:500}.quizBasicDetail .inputFeild input{width:15rem;height:1.3rem;border:0;border-bottom:1.5px solid #7f7f7f;margin-right:.6rem}.quizBasicDetail .inputFeild textarea{width:15rem;resize:horizontal;border:0;border-bottom:1.5px solid #7f7f7f;margin-right:.6rem;font-family:sans-serif;padding-top:.3rem}.grading select:focus,.quizBasicDetail .inputFeild input:focus,.quizBasicDetail .inputFeild textarea:focus{outline:0}input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.addNewQues{width:100%;text-align:center}.addNewQues button{width:9rem}.grading input[type=number],.grading select{width:8rem;border:0;border-bottom:1.5px solid #7f7f7f}.grading select{width:6.5rem;margin:0 .2rem;height:1.6rem}.formHeader,.quizdecription{display:flex;flex-direction:row;align-items:center}.formHeader{justify-content:space-around;margin:0 1rem;border-radius:3px 3px 0 0;height:3rem;background:#585a61;color:azure}.formHeader button{text-align:center;padding:6px;width:5rem;margin:.5rem 0;background-color:#748ec6;border-radius:3px;border:0}.formHeader button:hover{background-color:#515f7d}.quizdecription{justify-content:space-between;min-height:6rem;border-bottom:1px solid #c2c1c1;border-top:1px solid #c2c1c1;padding:1rem 2rem;position:relative;color:#585a61}.quizdecription span{font-weight:500}.quizdecription .left,.quizdecription .right{flex:50%;padding:1rem}.quizName-v{font-size:1.2rem;color:#515f7d;margin-left:2rem;font-weight:600}.quizName-v span{font-size:1.4rem}@media screen and (max-width:600px){.quizName-v span,p span{font-size:1rem}.quizName-v{font-size:.8rem}.addQuest,.button-add,.button-submit{width:auto}.button-submit button{width:7rem}.button-add button{width:5rem;font-size:.7rem}.inputFeild label{font-size:1rem;margin:.7rem 0}.inputFeild input{font-size:.8rem;margin-bottom:.7rem}}
+.createQuizForm {
+    margin-top: 6rem
+}
+
+.addQuest {
+    width: 20rem;
+    min-height: 20rem;
+    position: relative
+}
+
+.button-add button {
+    padding: 10px;
+    margin: .5rem 1.5rem;
+    background-color: #515f7d;
+    border-radius: 3px;
+    border: 0
+}
+
+.button-add {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.addNewQues button:hover,
+.button-add button:hover {
+    background-color: #748ec6
+}
+
+.questionVisual {
+    min-height: 3rem;
+    padding: 1.5rem
+}
+
+.questionVisual p {
+    font-size: 1.3rem;
+    color: #585a61;
+    font-weight: 600
+}
+
+.question-sec {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 1.5rem
+}
+
+.question-sec input {
+    margin: .3rem 0;
+    padding: 5px
+}
+
+.question-sec button {
+    width: 2rem;
+    margin-left: auto;
+    margin-top: .2rem;
+    color: #29344a;
+    background: #7f7f7f;
+    border: 0;
+    padding: 3px 5px;
+    border-radius: 2px;
+    font-size: .75rem
+}
+
+.question-sec input:focus {
+    outline: 0;
+    color: #585a61
+}
+
+button {
+    cursor: pointer;
+    color: #fff
+}
+
+.questionVisual .option {
+    display: flex;
+    flex-direction: row;
+    color: #585a61;
+    font-weight: 500
+}
+
+.questionVisual .option span {
+    margin-left: .3rem
+}
+
+.button-submit {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.buttonExit {
+    width: 100%
+}
+
+.buttonExit button {
+    float: right;
+    margin: .5rem;
+    color: #29344a;
+    background: #7f7f7f;
+    border: 0;
+    padding: 3px 5px;
+    border-radius: 2px;
+    font-size: .75rem
+}
+
+.button-submit button {
+    position: static;
+    padding: 10px;
+    margin: .5rem 1.5rem;
+    background-color: #515f7d;
+    border-radius: 3px;
+    border: 0
+}
+
+.dialogue {
+    height: 10rem;
+    position: relative;
+    width: 10rem;
+    text-align: center
+}
+
+.inputFeild {
+    display: flex;
+    flex-direction: column
+}
+
+.actionbutton {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    bottom: 1rem
+}
+
+.actionbutton button {
+    background: #515f7d;
+    height: 1.5rem;
+    border-radius: 3px;
+    width: 4rem;
+    border: 0
+}
+
+.dialogue input {
+    margin: .3rem 1rem;
+    padding: 5px
+}
+
+.fullFormVisual {
+    min-height: 40vh;
+    margin: 0 1rem 1rem;
+    border: 1px solid #c2c1c1;
+    border-radius: 2px
+}
+
+.quizBasicDetail {
+    padding: 3rem 4rem;
+    margin: 1rem;
+    border-radius: 0 0 3px 3px;
+    border: 1px solid #7f7f7f
+}
+
+.quizBasicDetail button {
+    text-align: center;
+    padding: 6px;
+    width: 4rem;
+    margin: .5rem 0;
+    background-color: #515f7d;
+    border-radius: 3px;
+    border: 0
+}
+
+.quizBasicDetail .inputFeild {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c2c1c1
+}
+
+.quizBasicDetail label {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #7f7f7f;
+    font-weight: 500
+}
+
+.quizBasicDetail .inputFeild input {
+    width: 15rem;
+    height: 1.3rem;
+    border: 0;
+    border-bottom: 1.5px solid #7f7f7f;
+    margin-right: .6rem
+}
+
+.quizBasicDetail .inputFeild textarea {
+    width: 15rem;
+    resize: horizontal;
+    border: 0;
+    border-bottom: 1.5px solid #7f7f7f;
+    margin-right: .6rem;
+    font-family: sans-serif;
+    padding-top: .3rem
+}
+
+.grading select:focus,
+.quizBasicDetail .inputFeild input:focus,
+.quizBasicDetail .inputFeild textarea:focus {
+    outline: 0
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.addNewQues {
+    width: 100%;
+    text-align: center
+}
+
+.addNewQues button {
+    width: 9rem
+}
+
+.grading input[type=number],
+.grading select {
+    width: 8rem;
+    border: 0;
+    border-bottom: 1.5px solid #7f7f7f
+}
+
+.grading select {
+    width: 6.5rem;
+    margin: 0 .2rem;
+    height: 1.6rem
+}
+
+.formHeader,
+.quizdecription {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.formHeader {
+    justify-content: space-around;
+    margin: 0 1rem;
+    border-radius: 3px 3px 0 0;
+    height: 3rem;
+    background: #585a61;
+    color: azure
+}
+
+.formHeader button {
+    text-align: center;
+    padding: 6px;
+    width: 5rem;
+    margin: .5rem 0;
+    background-color: #748ec6;
+    border-radius: 3px;
+    border: 0
+}
+
+.formHeader button:hover {
+    background-color: #515f7d
+}
+
+.quizdecription {
+    justify-content: space-between;
+    min-height: 6rem;
+    border-bottom: 1px solid #c2c1c1;
+    border-top: 1px solid #c2c1c1;
+    padding: 1rem 2rem;
+    position: relative;
+    color: #585a61
+}
+
+.quizdecription span {
+    font-weight: 500
+}
+
+.quizdecription .left,
+.quizdecription .right {
+    flex: 50%;
+    padding: 1rem
+}
+
+.quizName-v {
+    font-size: 1.2rem;
+    color: #515f7d;
+    margin-left: 2rem;
+    font-weight: 600
+}
+
+.quizName-v span {
+    font-size: 1.4rem
+}
+
+.delete{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width:600px) {
+
+    .quizName-v span,
+    p span {
+        font-size: 1rem
+    }
+
+    .quizName-v {
+        font-size: .8rem
+    }
+
+    .addQuest,
+    .button-add,
+    .button-submit {
+        width: auto
+    }
+
+    .button-submit button {
+        width: 7rem
+    }
+
+    .button-add button {
+        width: 5rem;
+        font-size: .7rem
+    }
+
+    .inputFeild label {
+        font-size: 1rem;
+        margin: .7rem 0
+    }
+
+    .inputFeild input {
+        font-size: .8rem;
+        margin-bottom: .7rem
+    }
+}

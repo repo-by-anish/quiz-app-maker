@@ -117,7 +117,7 @@ import axios from "axios";
 //     ],
 // }
 
-const QUIZ_URL = "https://black-pigeon-tie.cyclic.app/quiz"
+const QUIZ_URL = "http://localhost:3500/quiz"
 
 const initialState = {
     name: "quizes",
@@ -136,7 +136,6 @@ export const fetchQuizes = createAsyncThunk("quizes/fetchQuese", async () => {
 })
 
 export const addNewQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz)=>{
-    console.log(initialQuiz);
     const inputQuiz={...initialQuiz,quizId:nanoid(),quizCreatDate:new Date().toLocaleDateString()};
     try {
         const response =await axios.post(QUIZ_URL,inputQuiz);
@@ -152,6 +151,17 @@ export const updateQuize= createAsyncThunk("quizes/addNewQuiz",async(initialQuiz
         return response.data;
     } catch (error) {
         return error.message;
+    }
+})
+
+export const deleteQuiz= createAsyncThunk("quizes/deleteQuiz",async(quizId)=>{
+    try {
+        if(quizId){
+            const response=await axios.delete(QUIZ_URL,{data:{quizId}});
+            return response.data;
+        }
+    } catch (error) {
+       return error.message; 
     }
 })
 

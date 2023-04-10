@@ -62,7 +62,6 @@ const CreateQuizForm = () => {
     const handleFinealSubmit = async () => {
         if (canSubmitQuestion) {
             try {
-                console.log(dataPrepared);
                 const response = await dispatch(addNewQuize({ ...dataPrepared }));
                 setDataPrepared({
                     quizName: "",
