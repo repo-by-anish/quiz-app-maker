@@ -91,11 +91,15 @@ const SingleQuizTest = ({ id, quiz, timeLeft, setFinalSubmitted, fetchScoreData 
       }else{
         return;
       }
-      actAns.forEach(a => {
-        if (userAns.indexOf(a) === -1) {
-          isCorrect = false;
-        }
-      })
+      if (actAns.length===userAns.length) {
+        actAns.forEach(a => {
+          if (userAns.indexOf(a) === -1) {
+            isCorrect = false;
+          }
+        })
+      }else{
+        return;
+      }
       if (isCorrect) {
         correctAnswere++;
       }
