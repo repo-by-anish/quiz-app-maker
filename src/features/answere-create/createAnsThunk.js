@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "http://localhost:3500/answere"
+const API_URL = "https://black-pigeon-tie.cyclic.app/answere"
 const initialState = {
     name: "answeres",
     answeres: [],
